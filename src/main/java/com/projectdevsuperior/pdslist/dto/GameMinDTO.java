@@ -1,6 +1,7 @@
 package com.projectdevsuperior.pdslist.dto;
 
 import com.projectdevsuperior.pdslist.entities.Game;
+import com.projectdevsuperior.pdslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -14,12 +15,19 @@ public class GameMinDTO {
 	}
 
 	public GameMinDTO(Game entity) {
-		super();
 		id = entity.getId();
 		title = entity.getTitle();
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
+	}
+	
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
 	}
 
 	public Long getId() {
@@ -40,7 +48,6 @@ public class GameMinDTO {
 
 	public String getShortDescription() {
 		return shortDescription;
-	}
-	
+	}	
 		
 }
